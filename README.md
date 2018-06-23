@@ -1,7 +1,6 @@
 # Project 2
 
-Team members:
-
+**Team members**:
 - Seth Drewry
 - Michael Bruins
 - Bobby Jaikaran
@@ -9,9 +8,7 @@ Team members:
 - Anna Bower
 
 ## **Project Description**
-
 Analysis of social media reactions to North Korea and US relations around 3 key events:
-
 - **Trump cancels summit** - *May 24, 2018*
 - **Summit is back on** - *May 30, 2018*
 - **Summit happens** - *June, 12, 2018*
@@ -19,12 +16,12 @@ Analysis of social media reactions to North Korea and US relations around 3 key 
 Final product will be an interactive data visualization dashboard in which users can examine data focusing in on each of the key events. Data related to social media reactions will be limited to 24-48 hours after each key event.
 
 ### Potential data sources:
-
 - Twitter
 - World Bank
 - Stocks Data
--- (https://finance.yahoo.com/)[Yahoo! Finance]
-
+  - [Yahoo! Finance](https://finance.yahoo.com/)
+  - [IEX Market Data](https://iextrading.com)
+  
 ### Potential visualizations:
 
 - Line graph with number of tweets related to north korea over the entire 30 day span (approx May 20-June 20) to show any spikes in the number of tweets (and retweets) about North Korea that may be as a result of the specified news events.
