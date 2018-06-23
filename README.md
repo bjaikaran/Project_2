@@ -23,7 +23,7 @@ Final product will be an interactive data visualization dashboard in which users
 - Twitter
 - World Bank
 - Stocks Data
--- (https://finance.yahoo.com/[Yahoo! Finance]
+-- (https://finance.yahoo.com/)[Yahoo! Finance]
 
 ### Potential visualizations:
 
