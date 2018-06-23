@@ -12,9 +12,9 @@ Team members:
 
 Analysis of social media reactions to North Korea and US relations around 3 key events:
 
-- Trump cancels summit - May 24, 2018
-- Summit is back on - May 30, 2018
-- Summit happens - June, 12, 2018
+- **Trump cancels summit** - *May 24, 2018*
+- **Summit is back on** - *May 30, 2018*
+- **Summit happens** - *June, 12, 2018*
 
 Final product will be an interactive data visualization dashboard in which users can examine data focusing in on each of the key events. Data related to social media reactions will be limited to 24-48 hours after each key event.
 
@@ -22,7 +22,8 @@ Final product will be an interactive data visualization dashboard in which users
 
 - Twitter
 - World Bank
-- Stocks
+- Stocks Data
+-- (https://finance.yahoo.com/[Yahoo! Finance]
 
 ### Potential visualizations:
 
