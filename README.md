@@ -1,37 +1,55 @@
-## Welcome to GitHub Pages
+# Project 2
 
-You can use the [editor on GitHub](https://github.com/bjaikaran/Project_2/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+Team members:
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+- Seth Drewry
+- Michael Bruins
+- Bobby Jaikaran
+- Sam Stone
+- Anna Bower
 
-### Markdown
+## **Project Description**
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+Analysis of social media reactions to North Korea and US relations around 3 key events:
 
-```markdown
-Syntax highlighted code block
+- Trump cancels summit - May 24, 2018
+- Summit is back on - May 30, 2018
+- Summit happens - June, 12, 2018
 
-# Header 1
-## Header 2
-### Header 3
+Final product will be an interactive data visualization dashboard in which users can examine data focusing in on each of the key events. Data related to social media reactions will be limited to 24-48 hours after each key event.
 
-- Bulleted
-- List
+### Potential data sources:
 
-1. Numbered
-2. List
+- Twitter
+- World Bank
+- Stocks
 
-**Bold** and _Italic_ and `Code` text
+### Potential visualizations:
 
-[Link](url) and ![Image](src)
-```
+- Line graph with number of tweets related to north korea over the entire 30 day span (approx May 20-June 20) to show any spikes in the number of tweets (and retweets) about North Korea that may be as a result of the specified news events.
+- Heat map of tweet locations (including a drop down for each event); interactive map that users can change based on event
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+Other potential analysis:
 
-### Jekyll Themes
+- Sentiment analysis of tweets
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/bjaikaran/Project_2/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+**Presentation** - 10 minutes
 
-### Support or Contact
+- Theme
+- Coding approach
+- Data munging techniques
+- Final visualization
 
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+---
+
+***Requirements***
+- Four tracks:
+  - A custom &quot;creative&quot; D3.js project (i.e. non-standard graph or chart)
+  - A combination of Web Scraping and Leaflet or Plotly
+  - A dashboard page with multiple charts all updating from the same data
+  - A &quot;thick&quot; server that performs multiple manipulations on data in a database prior to visualization (must be approved)
+- MUST be powered by a dataset with at least 100 records
+- MUST include some level of user-driven interaction (e.g. menus, dropdowns, textboxes, etc.)
+- Visualization MUST include a Python Flask powered RESTful API, HTML/CSS, JavaScript, and at least one database (MySQL, MongoDB, SQLite, etc.)
+- SHOULD include at least one JS library that we did not cover.
+- Final visualization SHOULD ideally include at least three views
