@@ -1,0 +1,16 @@
+.box-background {
+    background-color:rgb(54, 54, 54);
+} 
+
+.body-style {
+    background-color: lightgray;
+}
+
+.title {
+    font-family: 'Obitron', sans-serif;
+    font-size:60px;
+}
+
+.container-fluid{
+    padding: 0px;
+}
