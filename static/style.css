@@ -3,6 +3,9 @@
     color: white;
 } 
 
+.box-padding {
+    padding: 16px;
+}
 .button {
     background-color: red;
 }
@@ -28,3 +31,12 @@
     top:50%; 
     left:50%;
 }
+
+br {
+    display: block;
+    margin: 25px 0;
+ }
+
+ select {
+     width: 300px;
+ }

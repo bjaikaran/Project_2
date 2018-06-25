@@ -26,20 +26,37 @@
                     </div>
                 </div>
             </div>
-            <hr style="width: 100%; color: rgb(54,54,54); height: 10px; background-color: rgb(54,54,54); padding: 5px;" />
-            <br>
-            <div class="row">
-                <div class="col-md-12" style="margin: 0 auto; text-align: center;">
-                    <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                        <label class="btn btn-secondary button">
-                            <input type="radio" name="options" id="option1" autocomplete="off" checked> Twitter Analysis
-                        </label>
-                        <label class="btn btn-secondary button">
-                            <input type="radio" name="options" id="option2" autocomplete="off"> Financial Analysis
-                        </label>
-                    </div>
+        <hr style="width: 100%; color: rgb(54,54,54); height: 10px; background-color: rgb(54,54,54); padding: 5px;" />
+        </header>    
+        <br>
+        <div class="row">
+            <div class="col-md-12" style="margin: 0 auto; text-align: center;">
+                <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                    <label class="btn btn-secondary button">
+                        <input type="radio" name="options" id="option1" autocomplete="off" checked> Twitter Analysis
+                    </label>
+                    <label class="btn btn-secondary button">
+                        <input type="radio" name="options" id="option2" autocomplete="off"> Financial Analysis
+                    </label>
                 </div>
             </div>
-        </header>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-md-3">
+                <div class="box-background padding">
+                    <select id="selDateSet" onchange="getDate(this.value)">
+                        <option value="dateSet1">Missile Launch</option>
+                        <option value="dateSet2">Kim and Trump Summit</option>
+                    </select>
+                </div>
+                <div class="box-background padding">
+                    <select id="selDataSet" onchange="getData(this.value)">
+                        <option value="dataset1">DOW</option>
+                        <option value="dataset2">S&P 500</option>
+                    </select>
+                </div>
+            </div>
+        </div>
     </body>
 </html>
