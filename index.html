@@ -32,11 +32,11 @@
         <div class="row">
             <div class="col-md-12" style="margin: 0 auto; text-align: center;">
                 <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                    <label class="btn btn-secondary button">
-                        <input type="radio" name="options" id="option1" autocomplete="off" checked> Twitter Analysis
+                    <label class="btn btn-secondary button" id="twitterButton">
+                        <input type="radio" name="twitterData" id="twitterData" autocomplete="off" onclick="select_twitterData()"> Twitter Analysis
                     </label>
-                    <label class="btn btn-secondary button">
-                        <input type="radio" name="options" id="option2" autocomplete="off"> Financial Analysis
+                    <label class="btn btn-secondary button" id="financeButton">
+                        <input type="radio" name="FinanceData" id="financeData" autocomplete="off" onclick="select_financeData()"> Financial Analysis
                     </label>
                 </div>
             </div>
@@ -44,19 +44,15 @@
         <br>
         <div class="row">
             <div class="col-md-3">
-                <div class="box-background padding">
-                    <select id="selDateSet" onchange="getDate(this.value)">
-                        <option value="dateSet1">Missile Launch</option>
-                        <option value="dateSet2">Kim and Trump Summit</option>
-                    </select>
+                <div id="twitter_options">
                 </div>
-                <div class="box-background padding">
-                    <select id="selDataSet" onchange="getData(this.value)">
-                        <option value="dataset1">DOW</option>
-                        <option value="dataset2">S&P 500</option>
-                    </select>
+                <div id="finance_options">
                 </div>
             </div>
+            <div class="col-md-9">
+                <div id="plotSpace"></div>
+            </div>
         </div>
+        <script src="static/app.js"></script>
     </body>
 </html>
