@@ -1,0 +1,58 @@
+<!DOCTYPE HTML>
+<html lang="en-us">
+    <head>
+        <meta charset="UTF-8">
+        <title>The Democratic People's Republic of North Korea</title>
+
+        <!-- call script for JS-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.7.3/d3.min.js"></script>
+
+        <!-- call script for bootstrap-->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+        <!-- call css script-->
+        <link rel="stylesheet" type="text/css" href="static/style.css">
+        
+    </head>
+    <body class="body-style">
+        <header>
+            <div class="container-fluid">
+                <nav class="col-md-12 box-background">
+                    <a><img class="center-block" src="static/image/DPRK_Flag.png" height="75" width="150"></a>
+                </nav>
+                <div class="row text-center">
+                    <div class="col-md-12">
+                        <h1 class="title"><strong>The Democratic People's Republic of North Korea</strong></h1>
+                    </div>
+                </div>
+            </div>
+        <hr style="width: 100%; color: rgb(54,54,54); height: 10px; background-color: rgb(54,54,54); padding: 5px;" />
+        </header>    
+        <br>
+        <div class="row">
+            <div class="col-md-12" style="margin: 0 auto; text-align: center;">
+                <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                    <label class="btn btn-secondary button" id="twitterButton">
+                        <input type="radio" name="twitterData" id="twitterData" autocomplete="off" onclick="select_twitterData()"> Twitter Analysis
+                    </label>
+                    <label class="btn btn-secondary button" id="financeButton">
+                        <input type="radio" name="FinanceData" id="financeData" autocomplete="off" onclick="select_financeData()"> Financial Analysis
+                    </label>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-md-3">
+                <div id="twitter_options">
+                </div>
+                <div id="finance_options">
+                </div>
+            </div>
+            <div class="col-md-9">
+                <div id="plotSpace"></div>
+            </div>
+        </div>
+        <script src="static/app.js"></script>
+    </body>
+</html>
