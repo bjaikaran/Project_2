@@ -42,8 +42,8 @@ Final product will be an interactive data visualization dashboard in which users
 
 ### Requirements ###
 **- Four tracks:**
-  - A custom &quot;creative&quot; D3.js project (i.e. non-standard graph or chart)
-  - A combination of Web Scraping and Leaflet or Plotly
+  - A custom &quot;creative&quot; **D3.js** project (i.e. non-standard graph or chart)
+  - A combination of **Web Scraping** and **Leaflet** or **Plotly**
   - A dashboard page with multiple charts all updating from the same data
   - A &quot;thick&quot; server that performs multiple manipulations on data in a database prior to visualization (must be approved)
 - **MUST** be powered by a dataset with at least 100 records
