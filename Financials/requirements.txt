@@ -1,0 +1,10 @@
+iexfinance>=0.3.3
+pandas>=0.23.1
+numpy>=1.14.5
+PyPrind>=2.11.2
+requests>=2.18.4
+statistics>=1.0.3.5
+SQLAlchemy>=1.1.13
+pymongo>=3.4.0
+PyMySQL>=0.7.9
+Flask>=0.12.2
