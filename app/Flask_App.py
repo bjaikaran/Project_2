@@ -2,17 +2,29 @@
 # coding: utf-8
 
 # In[ ]:
-
-
-from flask import Flask, render_template, jsonify, redirect, request
+from sqlalchemy.ext.automap import automap_base
+from sqlalchemy.orm import Session
 from sqlalchemy import create_engine, func
 
+from flask import (Flask, render_template, request, redirect, jsonify)
+
 #create database
-engine = create_engine("stocks_hashtags.sqlite")
+engine = create_engine("sqlite:///data/stocks_hashtags.sqlite")
+
+Base = automap_base()
+
+Base.prepare(engine, reflect=True)
+
+hashtag_data = Base.classes.hashtags
+stock_data = Base.classes.stocks
+
+session = Session(engine)
+
+app = Flask(__name__)
 
 @app.route("/")
 def home():
-    render_template("index.html")
+    return render_template("index.html")
     
 @app.route("/stocks")
 def stock_select():
