@@ -13,10 +13,9 @@ function select_financeData() {
     change_finance_color();
     remove_twitter_dash();
     document.getElementById("finance_options").innerHTML =     '<div class="box-background box-padding"><label for="eventSelect">Select Event:</label><select id="eventSelect" onchange="selectEvent(this.value)">\
-    <option value="cancel" selected>Trump Cancels North Korea Summit</option><option value="reon">Trump Reopens North Korea Summit</option><option value="summitday">Day of The North Korea Summit</option>\
+    <option value="Rescheduled" selected>Trump Reschedules the North Korea Summit</option><option value="Summit">Day of The North Korea Summit</option>\
     </select></div><div class="box-background box-padding"><label for="sourceSelect">Select Dataset:</label><select id="dataSelect" onchange="selectData(this.value)">\
-    <option value="dataset1" selected>DOW</option><option value="dataset2">S&P 500</option>\
-    </select></div>';
+    <option value="dataset1">DOW</option><option value="dataset2">S&P 500</option><option value="dataset3" selected>EUXL</option></select></div>';
     
 
 // ***********TESTING HTML*****************
@@ -101,30 +100,38 @@ function remove_plotSpace() {
 // SELECT THE DATES FOR THE FINANCE PLOTS: 
 function selectEvent(event){
     switch(event){
-        case "cancel":
+        case "Rescheduled":
             //Add the date range for event one here
-            console.log("Summit Cancelled selected");
+            var event = "Rescheduled"
+            console.log(event)
             break;
-        case "reon":
+        case "Summit":
             //Add the date range for event two here
-            console.log("Summit ReOn selected");
+            var event = "Summit"
+            console.log(event)
             break;
-        case "summitday":
-            console.log("Day of the summit selected")
     }
+        create_finance_Plots(event, ticker);
 }
 // SELECT THE DATASET FOR THE FINANCE PLOT:
 function selectData(dataset){
     switch(dataset){
         case "dataset1":
             //Add the dataset for the DOW plot here
-            console.log("dataset 1 selected");
-            break;
+            var ticker = "DJA"
+            console.log("ticker " + ticker+ " selected");
+            break;         
         case "dataset2":
             //Add the dataset for the NASDAQ plot here
-            console.log("dataset 2 selected");
+            var ticker = "GSPC"
+            console.log("ticker " + ticker+ " selected");
+            break;
+        case "dataset3":
+            var ticker = "EUXL"
+            console.log("ticker " + ticker+ " selected");
             break;
     }
+    create_finance_Plots(event, ticker);
 }
 
 // SELECT VISUALIZATION FOR THE TWITTER PLOT
@@ -145,6 +152,54 @@ function selectViz(viz){
 
     }
 }
-function createPlots(){
 
+function handleSubmit() {
+    Plotly.d3.event.preventDefault();
+
+    var event = Plotly.d3.select('#eventInput:').node().value;
+    var ticker = Plotly.d3.select("#tickerInput").node().value;
+
+    console.log("you selected " + event + "and " + ticker);
+
+    Plotly.d3.select("#eventInput").node().value = "";
+    Plotly.d3.select("#tickerInput").node().value = "";
+    
+    create_finance_Plots(event, ticker);
 }
+
+function create_finance_Plot1(data) {
+    var data = ;//define dataset as dictionary with 3 options so plotly can select between them
+
+    var layout = {
+        title:'Trump Reschedules the Summit: Financial Data Trends',
+        xaxis: {
+            range: [startDate, endDate],
+            type: "date"
+        },
+        yaxis: {
+            autorange: true,
+            type: "linear"
+        }
+    };
+    Plotly.plot('plotspace1', data, layout{
+        updatemenus: [{
+            y: 1,
+            yanchor: 'top',
+            buttons: [{
+                method: 'restyle',
+                args: ['visible', [true, false, false]],
+                label: 'Dow Jones Industrial Average'
+            }, {
+                method: 'restyle',
+                args: ['visible', [false, true, false]],
+                label: 'Standards and Poors'
+            }, {
+                method: 'restyle',
+                args: ['visible', [false, false, true]],
+                label: 'Euro Equities Exchange'
+            }]
+        }],
+    });
+}
+
+Plotly.d3.select("#submit").on("click", handleSubmit);
