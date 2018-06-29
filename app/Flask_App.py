@@ -9,14 +9,14 @@ from sqlalchemy import create_engine, func
 from flask import (Flask, render_template, request, redirect, jsonify)
 
 #create database
-engine = create_engine("sqlite:///data/stocks_hashtags.sqlite")
+engine = create_engine("sqlite:///data/stocks_hashtags_V1.sqlite")
 
 Base = automap_base()
 
 Base.prepare(engine, reflect=True)
 
 hashtag_data = Base.classes.hashtags
-stock_data = Base.classes.stocks
+stock_data = Base.classes.stock_data
 
 session = Session(engine)
 
@@ -28,21 +28,23 @@ def home():
     
 @app.route("/stocks")
 def stock_select():
+
+    results = session.query(stock_data.)
     
-    Symbols = ['DJA', 'GSPC', 'EUXL']
-    Rescheduled = []
-    Summit = []
+    # Symbols = ['DJA', 'GSPC', 'EUXL']
+    # Rescheduled = []
+    # Summit = []
 
-    #iterate through Symbols list and query results
-    for i in Symbols:
-        result = engine.execute("Select * FROM stocks WHERE Symbol = ('%s') AND Event = 'Rescheduled'" % (i)).fetchall()
-        Rescheduled.append(result)
+    # #iterate through Symbols list and query results
+    # for i in Symbols:
+    #     result = engine.execute("Select * FROM stocks WHERE Symbol = ('%s') AND Event = 'Rescheduled'" % (i)).fetchall()
+    #     Rescheduled.append(result)
 
-    for i in Symbols: 
-        result = engine.execute("Select * FROM stocks WHERE Symbol = ('%s') AND Event = 'Summit'" % (i)).fetchall()
-        Summit.append(result)
+    # for i in Symbols: 
+    #     result = engine.execute("Select * FROM stocks WHERE Symbol = ('%s') AND Event = 'Summit'" % (i)).fetchall()
+    #     Summit.append(result)
         
-    return jsonify(Rescheduled, Summit)
+    # return jsonify(Rescheduled, Summit)
 
 @app.route("/hashtags")
 def hashtag_select():
