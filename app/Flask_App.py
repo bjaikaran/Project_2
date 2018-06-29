@@ -28,31 +28,15 @@ def home():
     
 @app.route("/stocks")
 def stock_select():
+    results = session.query(stock_data.Event, stock_data.Symbol, stock_data.Date, stock_data.Open, stock_data.High, stock_data.Low, stock_data.Close).all()
 
-    results = session.query(stock_data.)
+    return jsonify(results)
     
-    # Symbols = ['DJA', 'GSPC', 'EUXL']
-    # Rescheduled = []
-    # Summit = []
-
-    # #iterate through Symbols list and query results
-    # for i in Symbols:
-    #     result = engine.execute("Select * FROM stocks WHERE Symbol = ('%s') AND Event = 'Rescheduled'" % (i)).fetchall()
-    #     Rescheduled.append(result)
-
-    # for i in Symbols: 
-    #     result = engine.execute("Select * FROM stocks WHERE Symbol = ('%s') AND Event = 'Summit'" % (i)).fetchall()
-    #     Summit.append(result)
-        
-    # return jsonify(Rescheduled, Summit)
-
 @app.route("/hashtags")
 def hashtag_select():
-    Rescheduled = engine.execute("SELECT * FROM hashtags WHERE Event = 'Rescheduled'").fetchall()
-
-    Summit = engine.execute("SELECT * FROM hashtags WHERE Event = 'Summit'").fetchall()
+    results = session.query(hashtag_data.event, hashtag_data.hashtag, hashtag_data.count)
     
-    return jsonify(Rescheduled, Summit)
+    return jsonify(results)
 
 if __name__ == "__main__":
     app.run(debug=True)
