@@ -12,11 +12,17 @@ function select_financeData() {
     //select financial data and highlight the button blue
     change_finance_color();
     remove_plotSpace();
-    //create_finance_Plot1();
-    //create_finance_Plot2();
+    create_finance_Plot1();
+    create_finance_Plot2();
 
-    document.getElementById("finance_options").innerHTML = "<div class='box-background box-padding'><label for='Select Stock:'</label><select id='dataselect' onchange='initialize_page(this.value)'></select></div>"
+    document.getElementById("finance_options").innerHTML = "<div class='box-background box-padding'><label for='Select Stock:'</label><select id='dataselect' onchange='initialize_finance(this.value)'></select></div>"
 
+    Plotly.d3.json('/tickers', function(error, tickers){
+        if (error) throw error;
+        for (var i = 0; i < tickers.length; i++) {
+            d3.select("#dataselect").append("option").attr("value", `${tickers[i]}`).text(`${tickers[i]}`)
+        }
+    })
 }
 
 function change_twitter_color() {
@@ -54,9 +60,16 @@ function remove_options() {
 
 }
 
-function create_finance_Plot1(data) {
+function initialize_finance(select) {
+    create_finance_Plot1(select);
+    create_finance_Plot2();
+}
+
+
+
+function create_finance_Plot1(select) {
     //define dataset as dictionary with 3 options so plotly can select between them
-    Plotly.d3.json('/stocks', function(error, response) {
+    Plotly.d3.json(`/stocks/${select}`, function(error, response) {
         if (error) throw error;
 
         var date = [];
