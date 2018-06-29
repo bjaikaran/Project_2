@@ -2,7 +2,7 @@ function select_twitterData() {
     //select twitter data and highlight the button blue
     change_twitter_color();
     remove_plotSpace();
-    create_twitter_plot();
+    create_chubby_chart();
 }
 
 function select_financeData() {
@@ -108,7 +108,55 @@ function create_finance_Plot2(data) {
     });
 }
 
-function create_twitter_plot() {
-
+function create_chubby_chart() {
+    var trace1 = {
+        x: ['May 30 - June 1', 'June 12 - June 14'],
+        y: [3022, 892],
+        name: 'Very Negative',
+        type: 'bar',
+        width: [.5, .5]
+      };
+      
+      var trace2 = {
+        x: ['May 30 - June 1', 'June 12 - June 14'],
+        y: [22387, 3363],
+        name: 'Negative',
+        type: 'bar',
+        width: [.5, .5]
+      };
+      
+      var trace3 = {
+        x: ['May 30 - June 1', 'June 12 - June 14'],
+        y: [3022, 892],
+        name: 'Neutral',
+        opacity: 0.5,
+        type: 'bar',
+        width: [.5, .5]
+      };
+      
+      var trace4 = {
+        x: ['May 30 - June 1', 'June 12 - June 14'],
+        y: [158879, 20350],
+        name: 'Positive',
+        type: 'bar',
+        width: [.5, .5]
+      };
+      
+      var trace5 = {
+        x: ['May 30 - June 1', 'June 12 - June 14'],
+        y: [4600, 1629],
+        name: 'Very Positive',
+        type: 'bar',
+        width: [.5, .5]
+      };
+      
+      var data = [trace1, trace2, trace3, trace4, trace5];
+      
+      var layout = {
+          title: "Volume of Tweets after Events",
+          barmode: "stack"
+      };
+      
+      Plotly.newPlot('plotSpace1', data, layout);
 }
 //Plotly.d3.select("#submit").on("click", handleSubmit);
