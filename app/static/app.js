@@ -12,7 +12,7 @@ function select_financeData() {
     //select financial data and highlight the button blue
     change_finance_color();
     remove_plotSpace();
-    create_finance_Plot1();
+    create_finance_Plot1("BP");
     //create_finance_Plot2();
 
     document.getElementById("finance_options").innerHTML = "<div class='box-background box-padding'><label for='Select Stock:'</label><select id='dataselect' onchange='initialize_finance(this.value)'></select></div>"
@@ -68,28 +68,33 @@ function initialize_finance(select) {
 
 
 function create_finance_Plot1(select) {
+    //console.log(select)
     //define dataset as dictionary with 3 options so plotly can select between them
     Plotly.d3.json(`/stocks/${select}`, function(error, response) {
         if (error) throw error;
-
+        // console.log(response[0])
+        // console.log(response[0][0])
+        // console.log(response[0][1])
         var date = [];
-        var symbol = [];
         var event = [];
         var open =[];
         var high =[];
         var low =[];
         var close =[];
 
-        for (var i = 0; i <=210; i++){
-            symbol.push(response[0][i]);
-            date.push(response[1][i]);
-            event.push(response[3][i]);
-            open.push(response[4][i]);
-            high.push(response[5][i]);
-            low.push(response[6][i]);
-            close.push(response[7][i]);
+        for (var i = 0; i <= 29; i++){
+            //console.log(response[i][1]);
+            //console.log(response[i]);
+            date.push(response[i][1]);
+            event.push(response[i][3]);
+            open.push(response[i][4]);
+            high.push(response[i][5]);
+            low.push(response[i][6]);
+            close.push(response[i][7]);         
         }
-
+        //console.log(date)
+        console.log(Math.min(low))
+        console.log(Math.max(high))
        var trace1 = {
            x: date,
            close: close,
@@ -119,17 +124,18 @@ function create_finance_Plot1(select) {
                autorange: true,
                domain: [0,1],
                range:['2018-05-15','2018-06-26'],
+               rangeslider: {range:['2018-05-15','2018-06-26']},
                title: 'Date',
                type: 'date'
            },
            yaxis: {
                autorange: false,
                domain: [0,1],
-               range: [42, 266],
+               range: [Math.min(low), Math.max(high)],
                type: 'linear' 
-           }
-       };
-
+           },
+           Title: `${select} stock data for May 15th to June 26th`
+       }
        Plotly.plot('plotSpace1', data, layout);
     })
 }
