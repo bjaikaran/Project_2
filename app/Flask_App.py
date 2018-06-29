@@ -28,7 +28,7 @@ def home():
     
 @app.route("/stocks")
 def stock_select():
-    results = session.query(stock_data.Event, stock_data.Symbol, stock_data.Date, stock_data.Open, stock_data.High, stock_data.Low, stock_data.Close).all()
+    results = session.query(stock_data.date, stock_data.symbol, stock_data.source, stock_data.event, stock_data.open, stock_data.high, stock_data.low, stock_data.close, stock_data.volume).all()
 
     return jsonify(results)
     
