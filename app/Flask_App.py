@@ -40,8 +40,8 @@ def get_tickers():
 @app.route("/stocks/<select>")
 def get_stock(select):
     ticker = select
-    query = stock_data.symbol
-    results = session.query(query).filter(stock_data.symbol == ticker).all()
+    query = [stock_data.symbol,stock_data.date, stock_data.source, stock_data.event, stock_data.open, stock_data.high, stock_data.low, stock_data.close, stock_data.volume]
+    results = session.query(*query).filter(stock_data.symbol == ticker).all()
 
     try:
         return jsonify(results)

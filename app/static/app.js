@@ -13,7 +13,7 @@ function select_financeData() {
     change_finance_color();
     remove_plotSpace();
     create_finance_Plot1();
-    create_finance_Plot2();
+    //create_finance_Plot2();
 
     document.getElementById("finance_options").innerHTML = "<div class='box-background box-padding'><label for='Select Stock:'</label><select id='dataselect' onchange='initialize_finance(this.value)'></select></div>"
 
@@ -81,56 +81,56 @@ function create_finance_Plot1(select) {
         var close =[];
 
         for (var i = 0; i <=210; i++){
-            date.push(response.date[i]);
-            symbol.push(response.symbol[i]);
-            event.push(response.event[i]);
-            open.push(response.open[i]);
-            high.push(response.high[i]);
-            low.push(response.low[i]);
-            close.push(response.close[i]);
+            symbol.push(response[0][i]);
+            date.push(response[1][i]);
+            event.push(response[3][i]);
+            open.push(response[4][i]);
+            high.push(response[5][i]);
+            low.push(response[6][i]);
+            close.push(response[7][i]);
         }
 
-        var BP_trace = [{
-            x: date,
-            close: close,
+       var trace1 = {
+           x: date,
+           close: close,
+           decreasing: {line: {color: '#7F7F7F'}},
+           high: high,
+           increasing: {line: {color: '17BECF'}},
+           line: {color: 'rgb(31,119,180,1)'},
+           low: low,
+           open: open,
+           type: 'candlestick',
+           xaxis: 'x',
+           yaxis: 'y'
+       };
+       
+       var data = [trace1];
 
-        }];
+       var layout = {
+           dragmode: 'zoom',
+           margin: {
+               r: 10,
+               t: 25,
+               b: 40,
+               l: 60
+           },
+           showlegend: false,
+           xaxis: {
+               autorange: true,
+               domain: [0,1],
+               range:['2018-05-15','2018-06-26'],
+               title: 'Date',
+               type: 'date'
+           },
+           yaxis: {
+               autorange: false,
+               domain: [0,1],
+               range: [42, 266],
+               type: 'linear' 
+           }
+       };
 
-        var FDX_trace = [{
-            x: date,
-            close: close,
-
-        }];
-
-        var INTC_trace = [{
-            x: date,
-            close: close,
-
-        }];
-
-        var MSFT_trace = [{
-            x: date,
-            close: close,
-
-        }];
-
-        var ORCL_trace = [{
-            x: date,
-            close: close,
-
-        }];
-
-        var UPS_trace = [{
-            x: date,
-            close: close,
-
-        }];
-
-        var XOM_trace = [{
-            x: date,
-            close: close,
-
-        }];
+       Plotly.plot('plotSpace1', data, layout);
     })
 }
 
