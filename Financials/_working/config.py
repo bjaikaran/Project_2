@@ -1,1 +1,0 @@
-cur_lay_api = "c99f1974cc21dda725ad74a1ff6ae568"
