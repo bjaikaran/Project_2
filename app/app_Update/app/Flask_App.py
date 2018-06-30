@@ -4,16 +4,6 @@ from sqlalchemy.ext.automap import automap_base
 from sqlalchemy.orm import Session
 from sqlalchemy import create_engine, func
 from sqlalchemy.pool import StaticPool
-<<<<<<< HEAD
-from flask import (Flask, render_template, request, redirect, jsonify)
-
-# create database
-engine = create_engine(
-    "sqlite:///data/stocks_hashtags_V1.sqlite",
-    connect_args={"check_same_thread": False},
-    poolclass=StaticPool,
-    echo=True)
-=======
 
 from flask import (Flask, render_template, request, redirect, jsonify)
 
@@ -22,7 +12,6 @@ engine = create_engine("sqlite:///data/stocks_hashtags_V1.sqlite",
 connect_args={"check_same_thread": False},
 poolclass=StaticPool,
 echo=True)
->>>>>>> 03c6dfa9fb03e81c4530fb564604ec8dcaf6141a
 
 Base = automap_base()
 
@@ -96,11 +85,11 @@ def hashtag_select():
 
     return jsonify(results)
 
-
 @app.route("/words")
 def word_select():
-    results = session.query(words.words, words.words_count, words.date).all()
-    return jsonify(results)
+   results = session.query(words.words, words.words_count, words.date).all()
+
+   return jsonify(results)
 
 
 if __name__ == "__main__":

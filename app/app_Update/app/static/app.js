@@ -9,17 +9,13 @@ function select_twitterData() {
     cwc_june();
 }
 
-function select_financeData() {
+function select_financeData() { 
     //select financial data and highlight the button blue
     change_finance_color();
     remove_plotSpace();
 
 
-<<<<<<< HEAD
-    document.getElementById("finance_options").innerHTML = "<div class='box-background box-padding'><label for='Select Stock:'</label><select id='dataselect' onchange='initialize_finance(this.value)' class='finSelect'></select></div>"
-=======
-    document.getElementById("finance_options").innerHTML = "<div class='box-background box-padding'><label for='Select Stock:'</label><select id='dataselect' class='finSelect' onchange='initialize_finance(this.value)'></select></div>"
->>>>>>> 03c6dfa9fb03e81c4530fb564604ec8dcaf6141a
+    document.getElementById("finance_options").innerHTML = "<div class='box-background box-padding'><label for='Select Stock:'</label><select id='dataselect' class='fonchange='initialize_finance(this.value)'></select></div>"
 
     Plotly.d3.json('/tickers', function(error, tickers){
         if (error) throw error;
@@ -45,10 +41,10 @@ function change_finance_color() {
 function remove_plotSpace() {
     var plotspace1 = document.getElementById("plotSpace1");
     var plotspace2 = document.getElementById("plotSpace2");
-    var plotspace2_5 = document.getElementById("plotSpace2_5");
-    var plotspace3 = document.getElementById("plotSpace3");
-    var plotspace4 = document.getElementById("plotSpace4");
-    var plotspace4_5 = document.getElementById("plotSpace4_5");
+    var plotspace2 = document.getElementById("plotSpace2_5");
+    var plotspace2 = document.getElementById("plotSpace3");
+    var plotspace2 = document.getElementById("plotSpace4");
+    var plotspace2 = document.getElementById("plotSpace4_5");
     if (plotspace1.firstChild) {
         while(plotspace1.firstChild) {
             plotspace1.removeChild(plotspace1.firstChild)
@@ -220,7 +216,7 @@ function create_chubby_chart() {
         title: "Volume of Tweets after Events",
         barmode: "stack"
     };
-    Plotly.newPlot('plotSpace3', data, layout);
+    Plotly.newPlot('plotSpace1', data, layout);
 
     Plotly.d3.json(`/hashtags`, function(error, response) {
         if (error) throw error;
@@ -242,7 +238,7 @@ function create_chubby_chart() {
         var layout = {
             title: 'Twitter hashtags from May 15th to June 26th'
         }    
-        Plotly.newPlot('plotSpace1', data, layout)
+        Plotly.newPlot('plotSpace3', data, layout)
     });
 }
 
