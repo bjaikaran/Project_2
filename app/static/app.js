@@ -165,7 +165,7 @@ function create_finance_Plot1(select) {
 }
 
 function create_finance_Plot2() {
-    document.getElementById("plotSpace3").innerHTML = "<br/><br/><br/><br/><br/><br/><hr style='width: 100%; color: #192e72; height:3px; background-color: rgb(54,54,54); padding: 5px;' /><br/><br/><center><iframe src='https://plot.ly/~bjaikaran/14.embed' style='height:800px;width:99%;border:2px;border-color: #192e72'></iframe></center>"
+    document.getElementById("plotSpace3").innerHTML = "<center><br/><br/><br/><br/><br/><br/><hr style='width: 100%; color: #192e72; height:2px; background-color: rgb(54,54,54); padding: 5px;'/><br/><br/><iframe src='https://plot.ly/~bjaikaran/14.embed' style='height:800px;width:97%;border:1px;border-color:#192e72'></iframe></center>"
 }
 
 function create_chubby_chart() {
