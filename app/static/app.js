@@ -127,7 +127,7 @@ function create_finance_Plot1(select) {
            yaxis: {
                autorange: false,
                domain: [0,1],
-               range: [low[1]/1.5, high[1]*1.5],
+               range: [low[1]/1.125, high[1]*1.15],
                type: 'linear' 
            },
            title: `${select} stock data for May 15th to June 26th`
