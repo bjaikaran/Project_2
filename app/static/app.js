@@ -216,7 +216,7 @@ function create_chubby_chart() {
         title: "Volume of Tweets after Events",
         barmode: "stack"
     };
-    Plotly.newPlot('plotSpace1', data, layout);
+    Plotly.newPlot('plotSpace3', data, layout);
 
     Plotly.d3.json(`/hashtags`, function(error, response) {
         if (error) throw error;
@@ -238,7 +238,7 @@ function create_chubby_chart() {
         var layout = {
             title: 'Twitter hashtags from May 15th to June 26th'
         }    
-        Plotly.newPlot('plotSpace3', data, layout)
+        Plotly.newPlot('plotSpace1', data, layout)
     });
 }
 
