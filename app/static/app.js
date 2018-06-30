@@ -4,16 +4,13 @@ function select_twitterData() {
     remove_options();
     remove_plotSpace();
     create_chubby_chart();
-
-
 }
 
 function select_financeData() {
     //select financial data and highlight the button blue
     change_finance_color();
     remove_plotSpace();
-    create_finance_Plot1("BP");
-    //create_finance_Plot2();
+
 
     document.getElementById("finance_options").innerHTML = "<div class='box-background box-padding'><label for='Select Stock:'</label><select id='dataselect' onchange='initialize_finance(this.value)'></select></div>"
 
@@ -23,7 +20,10 @@ function select_financeData() {
             d3.select("#dataselect").append("option").attr("value", `${tickers[i]}`).text(`${tickers[i]}`)
         }
     })
+    //create_finance_Plot1();
+    //create_finance_Plot2();
 }
+
 
 function change_twitter_color() {
     document.getElementById("twitterButton").style.background = "blue";
@@ -93,25 +93,21 @@ function create_finance_Plot1(select) {
             close.push(response[i][7]);         
         }
         //console.log(date)
-        console.log(Math.min(low))
-        console.log(Math.max(high))
-       var trace1 = {
-           x: date,
-           close: close,
-           decreasing: {line: {color: '#7F7F7F'}},
-           high: high,
-           increasing: {line: {color: '17BECF'}},
-           line: {color: 'rgb(31,119,180,1)'},
-           low: low,
-           open: open,
-           type: 'candlestick',
-           xaxis: 'x',
-           yaxis: 'y'
+        var trace1 = {
+            x: date,
+            close: close,
+            decreasing: {line: {color: '#7F7F7F'}},
+            high: high,
+            increasing: {line: {color: '17BECF'}},
+            line: {color: 'rgb(31,119,180,1)'},
+            low: low,
+            open: open,
+            type: 'candlestick',
+            xaxis: 'x',
+            yaxis: 'y'
        };
        
-       var data = [trace1];
-
-       var layout = {
+        var layout = {
            dragmode: 'zoom',
            margin: {
                r: 10,
@@ -131,13 +127,14 @@ function create_finance_Plot1(select) {
            yaxis: {
                autorange: false,
                domain: [0,1],
-               range: [Math.min(low), Math.max(high)],
+               range: [low[1]-10, high[1]+10],
                type: 'linear' 
            },
-           Title: `${select} stock data for May 15th to June 26th`
+           title: `${select} stock data for May 15th to June 26th`
        }
-       Plotly.plot('plotSpace1', data, layout);
-    })
+       Plotly.plot('plotSpace1', trace1, layout);
+    });
+
 }
 
 function create_finance_Plot2(data) {
@@ -195,4 +192,3 @@ function create_chubby_chart() {
       
       Plotly.newPlot('plotSpace1', data, layout);
 }
-//Plotly.d3.select("#submit").on("click", handleSubmit);
