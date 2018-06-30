@@ -15,7 +15,11 @@ function select_financeData() {
     remove_plotSpace();
 
 
+<<<<<<< HEAD
     document.getElementById("finance_options").innerHTML = "<div class='box-background box-padding'><label for='Select Stock:'</label><select id='dataselect' onchange='initialize_finance(this.value)' class='finSelect'></select></div>"
+=======
+    document.getElementById("finance_options").innerHTML = "<div class='box-background box-padding'><label for='Select Stock:'</label><select id='dataselect' class='finSelect' onchange='initialize_finance(this.value)'></select></div>"
+>>>>>>> 03c6dfa9fb03e81c4530fb564604ec8dcaf6141a
 
     Plotly.d3.json('/tickers', function(error, tickers){
         if (error) throw error;
