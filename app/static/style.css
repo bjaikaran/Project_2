@@ -1,3 +1,8 @@
+@font-face {
+    font-family: propaganda;
+    src: URL('/font/propaganda.ttf') format('ttf');
+  }
+
 .box-background {
     background-color:rgb(54, 54, 54);
     color: white;
@@ -8,6 +13,8 @@
 }
 .button {
     background-color: red;
+    font-family: 'propaganda','Obitron', sans-serif;
+   
 }
 
 .body-style {
@@ -15,7 +22,7 @@
 }
 
 .title {
-    font-family: 'Obitron', sans-serif;
+    font-family: 'propaganda','Obitron', sans-serif;
     font-size:60px;
 }
 
