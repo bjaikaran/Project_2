@@ -3,12 +3,14 @@
     <head>
         <meta charset="UTF-8">
         <title>The Democratic People's Republic of North Korea</title>
-        <link rel="icon" href="../static/icon.ico" type="image/x-icon">
-       <!-- call script for JS-->
+        <link rel="icon" href="../static/" type="image/x-icon">
+
+
+        <!-- call script for JS-->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.7.3/d3.min.js"></script>
 
         <!-- call script for bootstrap-->
-        <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
         <!-- call css script-->
         <link rel="stylesheet" type="text/css" href="../static/style.css">
@@ -30,21 +32,20 @@
                 </div>
             </div>
         <hr style="width: 100%; color: rgb(54,54,54); height: 10px; background-color: rgb(54,54,54); padding: 5px;" />
-    </header>    
+        </header>    
         <br>
         <div class="row">
             <div class="col-md-12" style="margin: 0 auto; text-align: center;">
                 <div class="btn-group-toggle" data-toggle="buttons">
                     <label id="twitterButton">
-                        <button type="button" class="btn btn-twit raised" name="twitterData" id="twitterData" autocomplete="off" onclick="select_twitterData()"> Twitter Analysis</button> 
+                        <button type="button" class="btn btn-twit raised" name="twitterData" id="twitterData" autocomplete="off" onclick="select_twitterData()"> Twitter Analysis
                     </label>
                     <label id="financeButton">
-                        <button type="button" class="btn btn-fin raised " name="FinanceData" id="financeData" autocomplete="off" onclick="select_financeData()"> Financial Analysis</button>
+                        <button type="button" class="btn btn-fin raised " name="FinanceData" id="financeData" autocomplete="off" onclick="select_financeData()"> Financial Analysis
                     </label>
                 </div>
             </div>
         </div>
-        <br>
         <div class="row">
             <div class= "col-md-3">
                 <div id="finance_options"></div>
