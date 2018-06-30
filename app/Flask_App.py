@@ -3,6 +3,7 @@
 from sqlalchemy.ext.automap import automap_base
 from sqlalchemy.orm import Session
 from sqlalchemy import create_engine, func
+from sqlalchemy.pool import StaticPool
 
 from flask import (Flask, render_template, request, redirect, jsonify)
 

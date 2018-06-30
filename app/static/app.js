@@ -15,7 +15,7 @@ function select_financeData() {
     remove_plotSpace();
 
 
-    document.getElementById("finance_options").innerHTML = "<div class='box-background box-padding'><label for='Select Stock:'</label><select id='dataselect' onchange='initialize_finance(this.value)'></select></div>"
+    document.getElementById("finance_options").innerHTML = "<div class='box-background box-padding'><label for='Select Stock:'</label><select id='dataselect' class='finSelect' onchange='initialize_finance(this.value)'></select></div>"
 
     Plotly.d3.json('/tickers', function(error, tickers){
         if (error) throw error;
@@ -41,6 +41,10 @@ function change_finance_color() {
 function remove_plotSpace() {
     var plotspace1 = document.getElementById("plotSpace1");
     var plotspace2 = document.getElementById("plotSpace2");
+    var plotspace2_5 = document.getElementById("plotSpace2_5");
+    var plotspace3 = document.getElementById("plotSpace3");
+    var plotspace4 = document.getElementById("plotSpace4");
+    var plotspace4_5 = document.getElementById("plotSpace4_5");
     if (plotspace1.firstChild) {
         while(plotspace1.firstChild) {
             plotspace1.removeChild(plotspace1.firstChild)
@@ -49,6 +53,26 @@ function remove_plotSpace() {
     if (plotspace2.firstChild) {
         while(plotspace2.firstChild) {
             plotspace2.removeChild(plotspace2.firstChild)
+        }
+    };
+    if (plotspace2_5.firstChild) {
+        while(plotspace2_5.firstChild) {
+            plotspace2_5.removeChild(plotspace2_5.firstChild)
+        }
+    };
+    if (plotspace3.firstChild) {
+        while(plotspace3.firstChild) {
+            plotspace3.removeChild(plotspace3.firstChild)
+        }
+    };
+    if (plotspace4.firstChild) {
+        while(plotspace4.firstChild) {
+            plotspace4.removeChild(plotspace4.firstChild)
+        }
+    };
+    if (plotspace4_5.firstChild) {
+        while(plotspace4_5.firstChild) {
+            plotspace4_5.removeChild(plotspace4_5.firstChild)
         }
     };
 }
