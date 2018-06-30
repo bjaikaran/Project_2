@@ -26,13 +26,13 @@ function select_financeData() {
 
 
 function change_twitter_color() {
-    document.getElementById("twitterButton").style.background = "blue";
-    document.getElementById("financeButton").style.background = "red";
+    //document.getElementById("twitterButton").style.background = "blue";
+    //document.getElementById("financeButton").style.background = "red";
 }
 
 function change_finance_color() {
-    document.getElementById("financeButton").style.background = "blue";
-    document.getElementById("twitterButton").style.background = "red";
+    //document.getElementById("financeButton").style.background = "blue";
+    //document.getElementById("twitterButton").style.background = "red";
 }
 
 function remove_plotSpace() {
