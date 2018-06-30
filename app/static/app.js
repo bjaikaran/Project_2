@@ -106,7 +106,7 @@ function create_finance_Plot1(select) {
             xaxis: 'x',
             yaxis: 'y'
        };
-       
+       data = [trace1]
         var layout = {
            dragmode: 'zoom',
            margin: {
@@ -132,7 +132,7 @@ function create_finance_Plot1(select) {
            },
            title: `${select} stock data for May 15th to June 26th`
        }
-       Plotly.plot('plotSpace1', trace1, layout);
+       Plotly.plot('plotSpace1', data, layout);
     });
 
 }

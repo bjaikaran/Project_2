@@ -15,6 +15,7 @@ Base.prepare(engine, reflect=True)
 
 hashtag_data = Base.classes.hashtags
 stock_data = Base.classes.stock_data
+words = Base.classes.words
 
 session = Session(engine)
 
@@ -79,6 +80,12 @@ def hashtag_select():
         ).all()
 
     return jsonify(results)
+
+@app.route("/words")
+def word_select():
+   results = session.query(words.words, words.words_count, words.date).all()
+
+   return jsonify(results)
 
 
 if __name__ == "__main__":
