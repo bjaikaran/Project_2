@@ -127,12 +127,12 @@ function create_finance_Plot1(select) {
            yaxis: {
                autorange: false,
                domain: [0,1],
-               range: [low[1]-10, high[1]+10],
+               range: [low[1]/1.5, high[1]*1.5],
                type: 'linear' 
            },
            title: `${select} stock data for May 15th to June 26th`
        }
-       Plotly.plot('plotSpace1', data, layout);
+       Plotly.newPlot('plotSpace1', data, layout);
     });
 
 }
@@ -148,47 +148,71 @@ function create_chubby_chart() {
         name: 'Very Negative',
         type: 'bar',
         width: [.5, .5]
-      };
-      
-      var trace2 = {
+    };
+    
+    var trace2 = {
         x: ['May 30 - June 1', 'June 12 - June 14'],
         y: [22387, 3363],
         name: 'Negative',
         type: 'bar',
         width: [.5, .5]
-      };
-      
-      var trace3 = {
+    };
+    
+    var trace3 = {
         x: ['May 30 - June 1', 'June 12 - June 14'],
         y: [3022, 892],
         name: 'Neutral',
         opacity: 0.5,
         type: 'bar',
         width: [.5, .5]
-      };
-      
-      var trace4 = {
+    };
+    
+    var trace4 = {
         x: ['May 30 - June 1', 'June 12 - June 14'],
         y: [158879, 20350],
         name: 'Positive',
         type: 'bar',
         width: [.5, .5]
-      };
-      
-      var trace5 = {
+    };
+    
+    var trace5 = {
         x: ['May 30 - June 1', 'June 12 - June 14'],
         y: [4600, 1629],
         name: 'Very Positive',
         type: 'bar',
         width: [.5, .5]
-      };
-      
-      var data = [trace1, trace2, trace3, trace4, trace5];
-      
-      var layout = {
-          title: "Volume of Tweets after Events",
-          barmode: "stack"
-      };
-      
-      Plotly.newPlot('plotSpace1', data, layout);
+    };
+    
+    var data = [trace1, trace2, trace3, trace4, trace5];
+    
+    var layout = {
+        title: "Volume of Tweets after Events",
+        barmode: "stack"
+    };
+    Plotly.newPlot('plotSpace1', data, layout);
+
+    Plotly.d3.json(`/hashtags`, function(error, response) {
+        if (error) throw error;
+        var tweets = []
+        var labels = []
+
+        for (var i = 0; i <= 15; i++){
+            tweets.push(response[i][2]);
+            labels.push(response[i][1]);
+        }
+        console.log(tweets);
+
+        var data = [{
+            values: tweets,
+            labels: labels,
+            type: 'pie'
+        }]
+
+        var layout = {
+            title: 'Twitter hashtags during from May 15th to June 26th'
+        }    
+        Plotly.newPlot('plotSpace2', data, layout)
+    });
+
+
 }
