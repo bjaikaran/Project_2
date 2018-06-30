@@ -4,6 +4,7 @@ function select_twitterData() {
     remove_options();
     remove_plotSpace();
     create_chubby_chart();
+    create_chubby_chart2();
 }
 
 function select_financeData() {
@@ -211,8 +212,68 @@ function create_chubby_chart() {
         var layout = {
             title: 'Twitter hashtags from May 15th to June 26th'
         }    
-        Plotly.newPlot('plotSpace2', data, layout)
+        Plotly.newPlot('plotSpace3', data, layout)
     });
+}
 
-
+function create_chubby_chart2(){
+    var data = [{
+        values: [1.1, 8.1, 57.7, 31.3, 1.7],
+        labels: ["Very negative",  "Negative", "Neutral", "Positive", "Very positive"],
+        domain: {
+          x: [0, .48]
+        },
+        name: 'Tweets',
+        hoverinfo: 'label+percent+name',
+        hole: .7,
+        type: 'pie'
+      }];
+      
+      var layout = {
+        title: 'Tweet Sentiment When Trump Cancels the North Korean Summit',
+        annotations: [
+          {
+            font: {
+              size: 14
+            },
+            showarrow: false,
+            text: '',
+            x: 0.5,
+            y: 0.5
+          }
+        ]
+      };
+      
+      Plotly.newPlot('plotSpace2', data, layout);
+      
+      
+      //Pie chart for June 12 through June 14 tweet sentiment
+      var data2 = [{
+        values: [2.5, 9.4, 56.7, 26.9, 4.5],
+        labels: ["Very negative",  "Negative", "Neutral", "Positive", "Very positive"],
+        domain: {
+          x: [0, .48]
+        },
+        name: 'Tweets',
+        hoverinfo: 'label+percent+name',
+        hole: .7,
+        type: 'pie'
+      }];
+      
+      var layout2 = {
+        title: 'Tweet Sentiment During the North Korean Summit',
+        annotations: [
+          {
+            font: {
+              size: 14
+            },
+            showarrow: false,
+            text: '',
+            x: 0.5,
+            y: 0.5
+          }
+        ]
+      };
+      
+      Plotly.newPlot('plotSpace2_5', data2, layout2);      
 }
