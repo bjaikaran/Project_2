@@ -7,7 +7,10 @@ from sqlalchemy import create_engine, func
 from flask import (Flask, render_template, request, redirect, jsonify)
 
 # create database
-engine = create_engine("sqlite:///data/stocks_hashtags_V1.sqlite")
+engine = create_engine("sqlite:///data/stocks_hashtags_V1.sqlite",
+connect_args={"check_same_thread": False},
+poolclass=StaticPool,
+echo=True)
 
 Base = automap_base()
 

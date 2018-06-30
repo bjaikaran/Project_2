@@ -5,6 +5,8 @@ function select_twitterData() {
     remove_plotSpace();
     create_chubby_chart();
     create_chubby_chart2();
+    cwc_may();
+    cwc_june();
 }
 
 function select_financeData() {
@@ -276,4 +278,28 @@ function create_chubby_chart2(){
       };
       
       Plotly.newPlot('plotSpace2_5', data2, layout2);      
+}
+
+function cwc_may(){
+    var data = [{
+        values: [73689, 29124, 27597, 21744, 20829, 19487, 17805, 17151, 16380, 16329],
+        labels: ['north_korea', 'president', 'focused', 'he', 'trump', 'nuclear', 'kim', 'trade', 'i', 'deals'],
+        type: 'pie',
+        name: 'Top-Ten Word Count May 30, 2018' }];
+    
+    var layout = {title: 'Top-Ten Word Count in Tweets - May 30, 2018'};
+
+    Plotly.newPlot('plotSpace4', data, layout);
+}
+
+function cwc_june(){
+    var data2 = [{
+        values: [3218, 1240, 1235, 972, 832, 776, 733, 681, 625, 573],
+        labels: ['dprk', 'trump', 'us', 'peace', 'president', 'iran', 'deal', 'nukes', 'money', 'obama'],
+        type: 'pie',
+        name: 'Top-Ten Word Count in Tweets - July 12, 2018' }];
+    
+    var layout2 = {title: 'Top-Ten Word Count in Tweets - June 12, 2018'};
+
+    Plotly.newPlot('plotSpace4_5', data2, layout2);
 }
