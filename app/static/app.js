@@ -209,7 +209,7 @@ function create_chubby_chart() {
         }]
 
         var layout = {
-            title: 'Twitter hashtags during from May 15th to June 26th'
+            title: 'Twitter hashtags from May 15th to June 26th'
         }    
         Plotly.newPlot('plotSpace2', data, layout)
     });
