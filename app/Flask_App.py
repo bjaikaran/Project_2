@@ -35,6 +35,7 @@ def home():
 def stock_select():
     results = session.query(
         stock_data.date,
+        
         stock_data.symbol,
         stock_data.source,
         stock_data.event,
